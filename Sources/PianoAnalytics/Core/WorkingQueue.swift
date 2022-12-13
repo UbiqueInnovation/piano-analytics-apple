@@ -76,15 +76,17 @@ final class WorkingQueue {
         }
     ]
 
+    let lifeCycleStep: LifecycleStep
     init(_ configFileLocation: String) {
         let cs = ConfigurationStep.shared(configFileLocation)
         let ps = PrivacyStep(cs)
+        lifeCycleStep = LifecycleStep.shared(ps)
         self.steps = [
             cs,
             VisitorIDStep.shared(ps),
             CrashHandlingStep.shared(ps),
             CustomerContextPropertiesStep(),
-            LifecycleStep.shared(ps),
+            lifeCycleStep,
             InternalContextPropertiesStep.shared,
             UsersStep(ps),
             OnBeforeBuildCallStep.shared,
