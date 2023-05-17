@@ -93,6 +93,7 @@ final class SendStep: Step {
         }
         request.httpMethod = "POST"
         request.httpBody = Data(body.utf8)
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
         var success = false
         var count = 0
