@@ -180,7 +180,7 @@ final class PianoAnalyticsUtils {
 
     static func toJSONData(_ o: Any) -> Data? {
         do {
-            return try JSONSerialization.data(withJSONObject: o, options: [])
+            return try JSONSerialization.data(withJSONObject: o, options: [.sortedKeys])
         } catch {
            return nil
         }
