@@ -166,6 +166,11 @@ public final class PianoAnalytics {
     /// The current sdk version
     public static let sdkVersion = "3.0.4"
 
+    /// Override LifecycleSteps `applicationActive`
+    public final func applicationDidEnterForeground() {
+        queue.lifeCycleStep.applicationActive()
+    }
+
     // MARK: Privacy
 
     /// Update privacy mode
