@@ -169,7 +169,7 @@ final class LifecycleStep: Step {
         self.timeBackgroundStarted = Date()
     }
 
-    @objc private final func applicationActive() {
+    @objc final func applicationActive() {
         guard let date = self.timeBackgroundStarted else {
             return
         }
